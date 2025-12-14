@@ -42,7 +42,7 @@ const PromoBanner = () => {
         initial={{ height: 0, opacity: 0 }}
         animate={{ height: 'auto', opacity: 1 }}
         exit={{ height: 0, opacity: 0 }}
-        className={`${promo.bg_color || 'bg-nostro-orange'} text-white text-center py-3 px-4 font-bold text-sm flex items-center justify-center gap-2 relative z-[60] shadow-lg`}
+        className={`${promo.bg_color || 'bg-notsro-orange'} text-white text-center py-3 px-4 font-bold text-sm flex items-center justify-center gap-2 relative z-[60] shadow-lg`}
       >
         <Megaphone className="w-4 h-4 animate-bounce" />
         <span className="tracking-wide uppercase">{promo.text}</span>

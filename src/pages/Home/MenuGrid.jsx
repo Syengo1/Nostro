@@ -52,12 +52,12 @@ const MenuGrid = ({ onAddToCart }) => {
   });
 
   return (
-    <section className="py-24 bg-nostro-black relative overflow-hidden" id="menu">
+    <section className="py-24 bg-notsro-black relative overflow-hidden" id="menu">
       <div className="container mx-auto px-6">
         
         <div className="text-center mb-8">
           <h2 className="text-3xl md:text-5xl font-serif font-bold text-white mb-4">
-            Our Curated <span className="text-nostro-orange">Menu</span>
+            Our Curated <span className="text-notsro-orange">Menu</span>
           </h2>
           <p className="text-white/60 max-w-2xl mx-auto">
             Handcrafted with passion. Swipe to explore the boldest flavors in Nairobi.
@@ -73,7 +73,7 @@ const MenuGrid = ({ onAddToCart }) => {
               placeholder="Search for burgers, drinks..." 
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full bg-white/5 border border-white/10 rounded-full py-3 pl-12 pr-6 text-white focus:border-nostro-orange focus:outline-none transition-all focus:bg-white/10"
+              className="w-full bg-white/5 border border-white/10 rounded-full py-3 pl-12 pr-6 text-white focus:border-notsro-orange focus:outline-none transition-all focus:bg-white/10"
             />
             {searchQuery && (
               <button 
@@ -98,7 +98,7 @@ const MenuGrid = ({ onAddToCart }) => {
                 }}
                 className={`px-6 py-2 rounded-full text-sm tracking-widest uppercase transition-all duration-300 border ${
                   activeCategory === cat
-                    ? 'bg-nostro-orange border-nostro-orange text-white shadow-glow'
+                    ? 'bg-notsro-orange border-notsro-orange text-white shadow-glow'
                     : 'bg-transparent border-white/10 text-white/60 hover:border-white/40 hover:text-white'
                 }`}
               >
@@ -109,19 +109,19 @@ const MenuGrid = ({ onAddToCart }) => {
         )}
 
         {loading ? (
-          <div className="flex justify-center py-20"><div className="w-12 h-12 border-4 border-nostro-orange border-t-transparent rounded-full animate-spin"></div></div>
+          <div className="flex justify-center py-20"><div className="w-12 h-12 border-4 border-notsro-orange border-t-transparent rounded-full animate-spin"></div></div>
         ) : (
           <div className="relative group">
             {/* Arrows logic remains... */}
             {!searchQuery && items.length > 2 && (
               <>
-                <button onClick={() => scroll('left')} className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-nostro-black/80 border border-white/10 rounded-full items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-nostro-orange hover:border-nostro-orange shadow-2xl"><ChevronLeft className="w-6 h-6" /></button>
-                <button onClick={() => scroll('right')} className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-nostro-black/80 border border-white/10 rounded-full items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-nostro-orange hover:border-nostro-orange shadow-2xl"><ChevronRight className="w-6 h-6" /></button>
+                <button onClick={() => scroll('left')} className="hidden md:flex absolute -left-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-notsro-black/80 border border-white/10 rounded-full items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-notsro-orange hover:border-notsro-orange shadow-2xl"><ChevronLeft className="w-6 h-6" /></button>
+                <button onClick={() => scroll('right')} className="hidden md:flex absolute -right-4 top-1/2 -translate-y-1/2 z-30 w-12 h-12 bg-notsro-black/80 border border-white/10 rounded-full items-center justify-center text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300 hover:bg-notsro-orange hover:border-notsro-orange shadow-2xl"><ChevronRight className="w-6 h-6" /></button>
               </>
             )}
 
-            <div className="absolute top-0 left-0 h-full w-12 bg-gradient-to-r from-nostro-black to-transparent z-20 pointer-events-none" />
-            <div className="absolute top-0 right-0 h-full w-12 bg-gradient-to-l from-nostro-black to-transparent z-20 pointer-events-none" />
+            <div className="absolute top-0 left-0 h-full w-12 bg-gradient-to-r from-notsro-black to-transparent z-20 pointer-events-none" />
+            <div className="absolute top-0 right-0 h-full w-12 bg-gradient-to-l from-notsro-black to-transparent z-20 pointer-events-none" />
 
             <div 
               ref={scrollContainerRef}

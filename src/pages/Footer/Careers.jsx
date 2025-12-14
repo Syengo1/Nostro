@@ -15,16 +15,16 @@ const Careers = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-nostro-black text-white pt-12 pb-20 px-6">
+    <div className="min-h-screen bg-notsro-black text-white pt-12 pb-20 px-6">
       <div className="container mx-auto max-w-4xl">
         
         {/* BACK BUTTON */}
-        <Link to="/" className="inline-flex items-center gap-2 text-nostro-orange hover:text-white transition mb-8 group">
+        <Link to="/" className="inline-flex items-center gap-2 text-notsro-orange hover:text-white transition mb-8 group">
           <ArrowLeft className="w-4 h-4 group-hover:-translate-x-1 transition-transform" /> 
           Back to Home
         </Link>
 
-        <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6">Join the <span className="text-nostro-orange">Family</span>.</h1>
+        <h1 className="text-4xl md:text-6xl font-serif font-bold mb-6">Join the <span className="text-notsro-orange">Family</span>.</h1>
         <p className="text-white/60 text-lg mb-16 max-w-2xl">
           We are always looking for passionate chefs, riders, and service staff to define the premium fast-food experience in Nairobi.
         </p>
@@ -32,7 +32,7 @@ const Careers = () => {
         <div className="space-y-6">
           {jobs.length === 0 && <p className="text-white/30 italic">No open positions at the moment.</p>}
           {jobs.map(job => (
-            <div key={job.id} className="bg-nostro-charcoal border border-white/10 p-8 rounded-2xl hover:border-nostro-orange/50 transition group">
+            <div key={job.id} className="bg-notsro-charcoal border border-white/10 p-8 rounded-2xl hover:border-notsro-orange/50 transition group">
               <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-6">
                 <div>
                   <h3 className="text-2xl font-bold mb-2">{job.title}</h3>
@@ -43,8 +43,8 @@ const Careers = () => {
                   <p className="mt-4 text-white/70 max-w-xl">{job.description}</p>
                 </div>
                 <a 
-                  href={`mailto:jobs@nostro.co.ke?subject=Application for ${job.title}`}
-                  className="px-6 py-3 bg-white/5 border border-white/10 rounded-full font-bold group-hover:bg-nostro-orange group-hover:text-white transition flex items-center gap-2"
+                  href={`mailto:jobs@notsro.co.ke?subject=Application for ${job.title}`}
+                  className="px-6 py-3 bg-white/5 border border-white/10 rounded-full font-bold group-hover:bg-notsro-orange group-hover:text-white transition flex items-center gap-2"
                 >
                   Apply Now <ArrowRight className="w-4 h-4" />
                 </a>

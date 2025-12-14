@@ -4,7 +4,7 @@ import whatsappLogo from '../../assets/Digital_Glyph_Green.png';
 const WhatsAppButton = () => {
   // REPLACE THIS WITH THE RESTAURANT'S REAL NUMBER
   const phoneNumber = "254700000000"; 
-  const message = "Hi Nostro! I have a question about the menu.";
+  const message = "Hi Notsro! I have a question about the menu.";
   const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
 
   return (

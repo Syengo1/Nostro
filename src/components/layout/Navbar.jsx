@@ -26,7 +26,7 @@ const Navbar = ({ cartCount = 0, onOpenCart, onOpenReservation }) => {
       <nav 
         className={`fixed top-0 w-full z-50 transition-all duration-500 border-b ${
           isScrolled 
-            ? 'bg-nostro-black/90 backdrop-blur-md border-white/10 py-4' 
+            ? 'bg-notsro-black/90 backdrop-blur-md border-white/10 py-4' 
             : 'bg-transparent border-transparent py-6'
         }`}
       >
@@ -34,14 +34,14 @@ const Navbar = ({ cartCount = 0, onOpenCart, onOpenReservation }) => {
           
           {/* 1. CLICKABLE LOGO */}
           <button onClick={handleLogoClick} className="text-2xl md:text-3xl font-serif font-bold tracking-tighter text-white cursor-pointer hover:opacity-80 transition">
-            NOSTRO<span className="text-nostro-orange">.</span>
+            NOTSRO<span className="text-notsro-orange">.</span>
           </button>
 
           {/* 2. WORKING NAVIGATION LINKS (using href="#id") */}
           <div className="hidden md:flex items-center gap-8 font-sans text-sm tracking-widest uppercase">
-            <a href="#menu" className="hover:text-nostro-orange transition-colors duration-300">Menu</a>
-            <a href="#story" className="hover:text-nostro-orange transition-colors duration-300">Our Story</a>
-            <a href="#locations" className="hover:text-nostro-orange transition-colors duration-300">Locations</a>
+            <a href="#menu" className="hover:text-notsro-orange transition-colors duration-300">Menu</a>
+            <a href="#story" className="hover:text-notsro-orange transition-colors duration-300">Our Story</a>
+            <a href="#locations" className="hover:text-notsro-orange transition-colors duration-300">Locations</a>
           </div>
 
           {/* Actions */}
@@ -56,11 +56,11 @@ const Navbar = ({ cartCount = 0, onOpenCart, onOpenReservation }) => {
             
             <button 
               onClick={onOpenCart}
-              className="relative p-2 text-white hover:text-nostro-orange transition-colors"
+              className="relative p-2 text-white hover:text-notsro-orange transition-colors"
             >
               <ShoppingBag className="w-6 h-6" />
               {cartCount > 0 && (
-                <span className="absolute -top-1 -right-1 w-5 h-5 bg-nostro-orange text-white text-[10px] font-bold flex items-center justify-center rounded-full animate-bounce">
+                <span className="absolute -top-1 -right-1 w-5 h-5 bg-notsro-orange text-white text-[10px] font-bold flex items-center justify-center rounded-full animate-bounce">
                   {cartCount}
                 </span>
               )}
@@ -82,7 +82,7 @@ const Navbar = ({ cartCount = 0, onOpenCart, onOpenReservation }) => {
           <motion.div 
             initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
             transition={{ type: "spring", stiffness: 100, damping: 20 }}
-            className="fixed inset-0 z-[60] bg-nostro-black flex flex-col justify-center items-center"
+            className="fixed inset-0 z-[60] bg-notsro-black flex flex-col justify-center items-center"
           >
             <button 
               onClick={() => setIsMobileMenuOpen(false)}
@@ -95,7 +95,7 @@ const Navbar = ({ cartCount = 0, onOpenCart, onOpenReservation }) => {
               <a href="#menu" onClick={() => setIsMobileMenuOpen(false)}>Menu</a>
               <a href="#story" onClick={() => setIsMobileMenuOpen(false)}>Story</a>
               <a href="#locations" onClick={() => setIsMobileMenuOpen(false)}>Locations</a>
-              <button onClick={() => { setIsMobileMenuOpen(false); onOpenReservation(); }} className="text-nostro-orange">Reserve Table</button>
+              <button onClick={() => { setIsMobileMenuOpen(false); onOpenReservation(); }} className="text-notsro-orange">Reserve Table</button>
             </div>
           </motion.div>
         )}

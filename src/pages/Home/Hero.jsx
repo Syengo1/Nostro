@@ -23,7 +23,7 @@ const Hero = () => {
   }, []);
 
   return (
-    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-nostro-black">
+    <section className="relative h-screen flex items-center justify-center overflow-hidden bg-notsro-black">
       
       {/* --- 1. BACKGROUND SLIDESHOW --- */}
       <div className="absolute inset-0 z-0">
@@ -41,7 +41,7 @@ const Hero = () => {
         </AnimatePresence>
         
         {/* Dark Gradient Overlay (Crucial for Text Readability) */}
-        <div className="absolute inset-0 bg-gradient-to-b from-nostro-black/90 via-nostro-black/50 to-nostro-black z-10"></div>
+        <div className="absolute inset-0 bg-gradient-to-b from-notsro-black/90 via-notsro-black/50 to-notsro-black z-10"></div>
         
         {/* Texture Overlay (Optional: Adds a grainy film look for premium feel) */}
         <div className="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20 z-10 mix-blend-overlay"></div>
@@ -57,7 +57,7 @@ const Hero = () => {
           transition={{ delay: 0.5 }}
           className="inline-flex items-center gap-2 px-4 py-2 mb-8 rounded-full bg-white/10 border border-white/10 backdrop-blur-md shadow-lg"
         >
-          <Star className="w-4 h-4 text-nostro-gold fill-nostro-gold" />
+          <Star className="w-4 h-4 text-notsro-gold fill-notsro-gold" />
           <span className="text-xs font-sans tracking-widest uppercase text-white font-bold">Nairobi's Premier Fast Food</span>
         </motion.div>
 
@@ -69,7 +69,7 @@ const Hero = () => {
           className="text-5xl md:text-7xl lg:text-8xl font-serif font-bold text-white leading-[1.1] mb-8 drop-shadow-2xl"
         >
           Crafted for the <br/>
-          <span className="text-transparent bg-clip-text bg-gradient-to-r from-nostro-orange to-amber-500">Bold & Hungry.</span>
+          <span className="text-transparent bg-clip-text bg-gradient-to-r from-notsro-orange to-amber-500">Bold & Hungry.</span>
         </motion.h1>
 
         {/* Subtext */}
@@ -91,7 +91,7 @@ const Hero = () => {
           className="flex flex-col md:flex-row items-center justify-center gap-4"
         >
           <a href="#menu">
-            <button className="group relative px-8 py-4 bg-nostro-orange text-white font-bold rounded-full overflow-hidden shadow-[0_0_40px_rgba(234,88,12,0.3)] transition-all hover:scale-105 hover:shadow-[0_0_60px_rgba(234,88,12,0.5)]">
+            <button className="group relative px-8 py-4 bg-notsro-orange text-white font-bold rounded-full overflow-hidden shadow-[0_0_40px_rgba(234,88,12,0.3)] transition-all hover:scale-105 hover:shadow-[0_0_60px_rgba(234,88,12,0.5)]">
               <span className="relative z-10 flex items-center gap-2">
                 Order Now <ChevronRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
               </span>

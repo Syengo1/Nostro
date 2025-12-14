@@ -4,7 +4,7 @@ export const menuItems = [
   {
     id: 1,
     name: "The Maasai Giant",
-    description: "Double beef patty, aged cheddar, caramelized onions, Nostro secret smoky sauce.",
+    description: "Double beef patty, aged cheddar, caramelized onions, Notsro secret smoky sauce.",
     price: 1200,
     category: "Burgers",
     tag: "Bestseller",

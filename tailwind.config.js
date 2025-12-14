@@ -11,7 +11,7 @@ export default {
         serif: ['Playfair Display', 'serif'],
       },
       colors: {
-        nostro: {
+        notsro: {
           black: '#0a0a0a',
           charcoal: '#171717',
           gold: '#D4AF37',

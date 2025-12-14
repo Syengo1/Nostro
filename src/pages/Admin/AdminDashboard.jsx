@@ -108,7 +108,7 @@ const AdminDashboard = () => {
     let phone = order.customer_details.phone.replace(/\D/g, '');
     if (phone.startsWith('0')) phone = '254' + phone.substring(1);
     const itemsList = order.items.map(i => `1x ${i.name}`).join(', ');
-    const msg = `Hi ${customerName}! 👋\nNostro has received your order #${order.id}:\n*${itemsList}*\n\nThe kitchen is firing up! 🔥\nWe will notify you when it's ready.`;
+    const msg = `Hi ${customerName}! 👋\nNotsro has received your order #${order.id}:\n*${itemsList}*\n\nThe kitchen is firing up! 🔥\nWe will notify you when it's ready.`;
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
     updateOrderStatus(order.id, 'cooking');
   };
@@ -139,7 +139,7 @@ const AdminDashboard = () => {
     const customerName = reservation.name;
     let phone = reservation.phone.replace(/\D/g, '');
     if (phone.startsWith('0')) phone = '254' + phone.substring(1);
-    const msg = `Hi ${customerName}! 👋\nReminder for your reservation at Nostro tonight.\nDate: ${reservation.date}\nTime: ${reservation.time}\nSee you soon!`;
+    const msg = `Hi ${customerName}! 👋\nReminder for your reservation at Notsro tonight.\nDate: ${reservation.date}\nTime: ${reservation.time}\nSee you soon!`;
     window.open(`https://wa.me/${phone}?text=${encodeURIComponent(msg)}`, '_blank');
   };
 
@@ -258,13 +258,13 @@ const AdminDashboard = () => {
   const historyOrders = orders.filter(o => o.status === 'delivered' || o.status === 'cancelled');
 
   return (
-    <div className="min-h-screen bg-nostro-black text-white font-sans relative">
+    <div className="min-h-screen bg-notsro-black text-white font-sans relative">
       {/* Navigation */}
-      <div className="bg-nostro-charcoal border-b border-white/10 sticky top-0 z-40 shadow-xl">
+      <div className="bg-notsro-charcoal border-b border-white/10 sticky top-0 z-40 shadow-xl">
         <div className="container mx-auto px-6 h-20 flex items-center justify-between overflow-x-auto">
           <div className="flex items-center gap-4">
             <h1 className="text-2xl font-serif font-bold text-white hidden md:block">Admin</h1>
-            <Link to="/" target="_blank" className="flex items-center gap-2 px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-xs font-bold text-nostro-orange border border-nostro-orange/30 transition">
+            <Link to="/" target="_blank" className="flex items-center gap-2 px-3 py-2 bg-white/5 hover:bg-white/10 rounded-lg text-xs font-bold text-notsro-orange border border-notsro-orange/30 transition">
               <Eye className="w-4 h-4" /> View Site
             </Link>
             <button onClick={toggleStoreStatus} className={`flex items-center gap-2 px-4 py-2 rounded-full border font-bold text-xs uppercase tracking-widest transition-all ${isStoreOpen ? 'bg-green-900/30 border-green-500 text-green-400' : 'bg-red-900/30 border-red-500 text-red-400'}`}>
@@ -273,7 +273,7 @@ const AdminDashboard = () => {
           </div>
           <div className="flex gap-2 bg-black/50 p-1 rounded-lg whitespace-nowrap">
             {['live', 'history', 'menu', 'reservations', 'coupons', 'deals', 'reviews', 'jobs', 'gift cards'].map(tab => (
-              <button key={tab} onClick={() => setActiveTab(tab)} className={`px-4 py-2 rounded-md text-sm font-bold transition capitalize ${activeTab === tab ? 'bg-nostro-orange text-white' : 'text-white/50 hover:text-white'}`}>{tab}</button>
+              <button key={tab} onClick={() => setActiveTab(tab)} className={`px-4 py-2 rounded-md text-sm font-bold transition capitalize ${activeTab === tab ? 'bg-notsro-orange text-white' : 'text-white/50 hover:text-white'}`}>{tab}</button>
             ))}
           </div>
           <button onClick={fetchData} className="p-2 hover:bg-white/10 rounded-full transition shrink-0"><RefreshCw className={`w-5 h-5 ${loading ? 'animate-spin' : ''}`} /></button>
@@ -286,10 +286,10 @@ const AdminDashboard = () => {
         {activeTab === 'live' && (
            <>
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mb-8">
-              <div className="bg-nostro-charcoal border border-white/10 p-4 rounded-xl flex flex-col"><div className="text-white/50 text-xs uppercase font-bold mb-1 flex items-center gap-2"><ShoppingBag className="w-3 h-3" /> Orders Today</div><div className="text-2xl font-bold text-white">{stats.count}</div></div>
-              <div className="bg-nostro-charcoal border border-white/10 p-4 rounded-xl flex flex-col"><div className="text-white/50 text-xs uppercase font-bold mb-1 flex items-center gap-2"><DollarSign className="w-3 h-3" /> Revenue Today</div><div className="text-2xl font-bold text-green-400">KES {stats.revenue.toLocaleString()}</div></div>
-              <div className="bg-nostro-charcoal border border-white/10 p-4 rounded-xl flex flex-col"><div className="text-white/50 text-xs uppercase font-bold mb-1 flex items-center gap-2"><Clock className="w-3 h-3" /> Pending</div><div className="text-2xl font-bold text-nostro-orange">{liveOrders.length}</div></div>
-              <div className="bg-nostro-charcoal border border-white/10 p-4 rounded-xl flex flex-col"><div className="text-white/50 text-xs uppercase font-bold mb-1 flex items-center gap-2"><TrendingUp className="w-3 h-3" /> Total Items</div><div className="text-2xl font-bold text-white">{menuItems.length}</div></div>
+              <div className="bg-notsro-charcoal border border-white/10 p-4 rounded-xl flex flex-col"><div className="text-white/50 text-xs uppercase font-bold mb-1 flex items-center gap-2"><ShoppingBag className="w-3 h-3" /> Orders Today</div><div className="text-2xl font-bold text-white">{stats.count}</div></div>
+              <div className="bg-notsro-charcoal border border-white/10 p-4 rounded-xl flex flex-col"><div className="text-white/50 text-xs uppercase font-bold mb-1 flex items-center gap-2"><DollarSign className="w-3 h-3" /> Revenue Today</div><div className="text-2xl font-bold text-green-400">KES {stats.revenue.toLocaleString()}</div></div>
+              <div className="bg-notsro-charcoal border border-white/10 p-4 rounded-xl flex flex-col"><div className="text-white/50 text-xs uppercase font-bold mb-1 flex items-center gap-2"><Clock className="w-3 h-3" /> Pending</div><div className="text-2xl font-bold text-notsro-orange">{liveOrders.length}</div></div>
+              <div className="bg-notsro-charcoal border border-white/10 p-4 rounded-xl flex flex-col"><div className="text-white/50 text-xs uppercase font-bold mb-1 flex items-center gap-2"><TrendingUp className="w-3 h-3" /> Total Items</div><div className="text-2xl font-bold text-white">{menuItems.length}</div></div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
              {liveOrders.map(order => <OrderCard key={order.id} order={order} onWhatsApp={sendWhatsApp} onStatusUpdate={updateOrderStatus} />)}
@@ -298,12 +298,12 @@ const AdminDashboard = () => {
         )}
 
         {/* TAB 2: HISTORY */}
-        {activeTab === 'history' && <div className="space-y-4">{historyOrders.map(order => (<div key={order.id} className="bg-nostro-charcoal border border-white/5 p-4 rounded-xl flex justify-between items-center opacity-75"><div><span className={`text-xs font-bold px-2 py-1 rounded uppercase mr-3 ${order.status === 'delivered' ? 'bg-green-500/20 text-green-500' : 'bg-red-500/20 text-red-500'}`}>{order.status}</span><span className="font-bold">#{order.id}</span></div><div className="text-right"><div className="font-bold">KES {order.total_amount}</div><div className="text-xs text-white/50">{order.customer_details.name}</div></div></div>))}</div>}
+        {activeTab === 'history' && <div className="space-y-4">{historyOrders.map(order => (<div key={order.id} className="bg-notsro-charcoal border border-white/5 p-4 rounded-xl flex justify-between items-center opacity-75"><div><span className={`text-xs font-bold px-2 py-1 rounded uppercase mr-3 ${order.status === 'delivered' ? 'bg-green-500/20 text-green-500' : 'bg-red-500/20 text-red-500'}`}>{order.status}</span><span className="font-bold">#{order.id}</span></div><div className="text-right"><div className="font-bold">KES {order.total_amount}</div><div className="text-xs text-white/50">{order.customer_details.name}</div></div></div>))}</div>}
         
         {/* TAB 3: MENU */}
         {activeTab === 'menu' && (
            <div><div className="flex justify-between mb-6"><h2 className="text-2xl font-bold">Menu Items</h2><button onClick={() => openModal('menu')} className="px-4 py-2 bg-green-600 rounded flex gap-2"><Plus className="w-4 h-4"/> Add</button></div>
-           <div className="bg-nostro-charcoal border border-white/10 rounded-xl overflow-hidden overflow-x-auto"><table className="w-full text-left text-sm text-white/70"><thead className="bg-black text-white uppercase font-bold text-xs"><tr><th className="p-4">Item</th><th className="p-4">Category</th><th className="p-4">Price</th><th className="p-4">Status</th><th className="p-4 text-right">Actions</th></tr></thead><tbody className="divide-y divide-white/5">{menuItems.map(item => (<tr key={item.id} className="hover:bg-white/5 transition"><td className="p-4 font-medium text-white">{item.name}</td><td className="p-4">{item.category}</td><td className="p-4">{item.sale_price ? <div><span className="text-green-400 font-bold mr-2">KES {item.sale_price}</span><span className="text-white/30 line-through text-xs">KES {item.price}</span></div> : <span className="text-nostro-orange font-bold">KES {item.price}</span>}</td><td className="p-4"><span className={`w-2 h-2 rounded-full inline-block mr-2 ${item.is_available ? 'bg-green-400' : 'bg-red-400'}`}></span>{item.is_available ? 'Stock' : 'Sold Out'}</td><td className="p-4 text-right flex justify-end gap-2"><button onClick={() => openModal('menu', item)} className="p-2 hover:bg-white/10 rounded text-blue-400"><Edit className="w-4 h-4" /></button><button onClick={() => toggleAvailability(item.id, item.is_available)} className="px-3 py-1 rounded text-xs border border-white/20">Toggle</button></td></tr>))}</tbody></table></div></div>
+           <div className="bg-notsro-charcoal border border-white/10 rounded-xl overflow-hidden overflow-x-auto"><table className="w-full text-left text-sm text-white/70"><thead className="bg-black text-white uppercase font-bold text-xs"><tr><th className="p-4">Item</th><th className="p-4">Category</th><th className="p-4">Price</th><th className="p-4">Status</th><th className="p-4 text-right">Actions</th></tr></thead><tbody className="divide-y divide-white/5">{menuItems.map(item => (<tr key={item.id} className="hover:bg-white/5 transition"><td className="p-4 font-medium text-white">{item.name}</td><td className="p-4">{item.category}</td><td className="p-4">{item.sale_price ? <div><span className="text-green-400 font-bold mr-2">KES {item.sale_price}</span><span className="text-white/30 line-through text-xs">KES {item.price}</span></div> : <span className="text-notsro-orange font-bold">KES {item.price}</span>}</td><td className="p-4"><span className={`w-2 h-2 rounded-full inline-block mr-2 ${item.is_available ? 'bg-green-400' : 'bg-red-400'}`}></span>{item.is_available ? 'Stock' : 'Sold Out'}</td><td className="p-4 text-right flex justify-end gap-2"><button onClick={() => openModal('menu', item)} className="p-2 hover:bg-white/10 rounded text-blue-400"><Edit className="w-4 h-4" /></button><button onClick={() => toggleAvailability(item.id, item.is_available)} className="px-3 py-1 rounded text-xs border border-white/20">Toggle</button></td></tr>))}</tbody></table></div></div>
         )}
         
         {/* TAB 4: RESERVATIONS (FIXED PAST DUE LOGIC) */}
@@ -311,7 +311,7 @@ const AdminDashboard = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">{reservations.map(res => {
             const past = isPastDue(res.date, res.time);
             return (
-              <div key={res.id} className={`bg-nostro-charcoal border p-6 rounded-xl flex flex-col ${past ? 'border-red-500/50 bg-red-500/5' : 'border-white/10'}`}>
+              <div key={res.id} className={`bg-notsro-charcoal border p-6 rounded-xl flex flex-col ${past ? 'border-red-500/50 bg-red-500/5' : 'border-white/10'}`}>
                 <div className="flex justify-between items-start mb-4">
                   <div><div className="text-lg font-bold text-white">{res.name}</div><div className="text-sm text-white/50">{res.phone}</div></div>
                   {past 
@@ -319,11 +319,11 @@ const AdminDashboard = () => {
                     : <span className={`px-2 py-1 rounded text-xs uppercase font-bold ${res.status === 'confirmed' ? 'bg-green-500/20 text-green-500' : 'bg-yellow-500/20 text-yellow-500'}`}>{res.status}</span>
                   }
                 </div>
-                <div className="flex gap-4 text-sm text-white/80 mb-4"><div className="flex items-center gap-2"><Calendar className="w-4 h-4 text-nostro-orange" /> {res.date}</div><div className="flex items-center gap-2"><Clock className="w-4 h-4 text-nostro-orange" /> {res.time}</div></div>
+                <div className="flex gap-4 text-sm text-white/80 mb-4"><div className="flex items-center gap-2"><Calendar className="w-4 h-4 text-notsro-orange" /> {res.date}</div><div className="flex items-center gap-2"><Clock className="w-4 h-4 text-notsro-orange" /> {res.time}</div></div>
                 <div className="text-sm text-white/50 mb-4">{res.guests}</div>
                 <div className="mt-auto space-y-2">
                   {!past && res.status === 'pending' && <button onClick={() => confirmReservation(res)} className="w-full py-2 bg-green-600 hover:bg-green-500 rounded text-white font-bold text-sm flex items-center gap-2 justify-center"><Mail className="w-4 h-4"/> Confirm</button>}
-                  {res.status === 'confirmed' && !past && <button onClick={() => sendReservationReminder(res)} className="w-full py-2 bg-white/10 hover:bg-white/20 rounded text-white font-bold text-sm flex items-center gap-2 justify-center"><BellRing className="w-4 h-4 text-nostro-orange"/> Reminder</button>}
+                  {res.status === 'confirmed' && !past && <button onClick={() => sendReservationReminder(res)} className="w-full py-2 bg-white/10 hover:bg-white/20 rounded text-white font-bold text-sm flex items-center gap-2 justify-center"><BellRing className="w-4 h-4 text-notsro-orange"/> Reminder</button>}
                   <button onClick={() => deleteReservation(res.id)} className="w-full py-2 bg-red-500/10 hover:bg-red-500/20 text-red-500 border border-red-500/30 rounded text-sm flex items-center gap-2 justify-center"><Trash2 className="w-4 h-4"/> {past ? "Archive / Delete" : "Delete"}</button>
                 </div>
               </div>
@@ -332,21 +332,21 @@ const AdminDashboard = () => {
         )}
 
         {/* TAB 5: COUPONS */}
-        {activeTab === 'coupons' && <div className="max-w-4xl mx-auto"><form onSubmit={handleAddCoupon} className="bg-nostro-charcoal border border-white/10 p-6 rounded-xl mb-8 flex gap-4 items-end"><div className="flex-1 space-y-1"><label className="text-xs text-white/50 uppercase font-bold">Code</label><input type="text" placeholder="SALE50" value={newCoupon.code} onChange={e => setNewCoupon({...newCoupon, code: e.target.value.toUpperCase()})} className="w-full bg-black/50 border border-white/10 rounded-lg p-3 text-white" required /></div><div className="w-32 space-y-1"><label className="text-xs text-white/50 uppercase font-bold">Discount %</label><input type="number" placeholder="20" value={newCoupon.discount_percent} onChange={e => setNewCoupon({...newCoupon, discount_percent: e.target.value})} className="w-full bg-black/50 border border-white/10 rounded-lg p-3 text-white" required /></div><button className="py-3 px-6 bg-nostro-orange hover:bg-orange-600 rounded-xl font-bold text-white">Create</button></form><div className="space-y-3">{coupons.map(coupon => (<div key={coupon.id} className="flex justify-between items-center bg-nostro-charcoal border border-white/10 p-4 rounded-xl"><div className="flex items-center gap-4"><div className="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center text-green-500"><Tag className="w-5 h-5" /></div><div><div className="font-bold text-white tracking-widest">{coupon.code}</div><div className="text-sm text-white/50">{coupon.discount_percent}% Off</div></div></div><button onClick={() => deleteCoupon(coupon.id)} className="p-2 hover:bg-red-500/20 rounded-full text-white/30 hover:text-red-500"><Trash2 className="w-5 h-5" /></button></div>))}</div></div>}
+        {activeTab === 'coupons' && <div className="max-w-4xl mx-auto"><form onSubmit={handleAddCoupon} className="bg-notsro-charcoal border border-white/10 p-6 rounded-xl mb-8 flex gap-4 items-end"><div className="flex-1 space-y-1"><label className="text-xs text-white/50 uppercase font-bold">Code</label><input type="text" placeholder="SALE50" value={newCoupon.code} onChange={e => setNewCoupon({...newCoupon, code: e.target.value.toUpperCase()})} className="w-full bg-black/50 border border-white/10 rounded-lg p-3 text-white" required /></div><div className="w-32 space-y-1"><label className="text-xs text-white/50 uppercase font-bold">Discount %</label><input type="number" placeholder="20" value={newCoupon.discount_percent} onChange={e => setNewCoupon({...newCoupon, discount_percent: e.target.value})} className="w-full bg-black/50 border border-white/10 rounded-lg p-3 text-white" required /></div><button className="py-3 px-6 bg-notsro-orange hover:bg-orange-600 rounded-xl font-bold text-white">Create</button></form><div className="space-y-3">{coupons.map(coupon => (<div key={coupon.id} className="flex justify-between items-center bg-notsro-charcoal border border-white/10 p-4 rounded-xl"><div className="flex items-center gap-4"><div className="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center text-green-500"><Tag className="w-5 h-5" /></div><div><div className="font-bold text-white tracking-widest">{coupon.code}</div><div className="text-sm text-white/50">{coupon.discount_percent}% Off</div></div></div><button onClick={() => deleteCoupon(coupon.id)} className="p-2 hover:bg-red-500/20 rounded-full text-white/30 hover:text-red-500"><Trash2 className="w-5 h-5" /></button></div>))}</div></div>}
 
         {/* TAB 6: DEALS */}
-        {activeTab === 'deals' && <div className="max-w-2xl mx-auto text-center"><div className="bg-nostro-charcoal border border-white/10 p-8 rounded-2xl"><div className="mb-8"><div className="h-10 bg-nostro-orange rounded-lg flex items-center justify-center text-black font-bold text-sm mb-2">🔥 PREVIEW: {promoText || "No active promo"}</div></div><div className="space-y-4"><input type="text" value={promoText} onChange={(e) => setPromoText(e.target.value)} placeholder="Promo Text" className="w-full bg-black/50 border border-white/10 p-4 rounded-xl text-white" /><div className="flex justify-center gap-4 pt-4"><button onClick={() => updatePromo(true)} className="px-8 py-3 bg-green-600 hover:bg-green-500 text-white font-bold rounded-xl transition flex items-center gap-2"><CheckCircle className="w-4 h-4" /> Activate</button><button onClick={() => updatePromo(false)} className="px-8 py-3 bg-red-600/20 hover:bg-red-600/40 text-red-400 font-bold rounded-xl transition flex items-center gap-2"><XCircle className="w-4 h-4" /> Turn Off</button></div></div></div></div>}
+        {activeTab === 'deals' && <div className="max-w-2xl mx-auto text-center"><div className="bg-notsro-charcoal border border-white/10 p-8 rounded-2xl"><div className="mb-8"><div className="h-10 bg-notsro-orange rounded-lg flex items-center justify-center text-black font-bold text-sm mb-2">🔥 PREVIEW: {promoText || "No active promo"}</div></div><div className="space-y-4"><input type="text" value={promoText} onChange={(e) => setPromoText(e.target.value)} placeholder="Promo Text" className="w-full bg-black/50 border border-white/10 p-4 rounded-xl text-white" /><div className="flex justify-center gap-4 pt-4"><button onClick={() => updatePromo(true)} className="px-8 py-3 bg-green-600 hover:bg-green-500 text-white font-bold rounded-xl transition flex items-center gap-2"><CheckCircle className="w-4 h-4" /> Activate</button><button onClick={() => updatePromo(false)} className="px-8 py-3 bg-red-600/20 hover:bg-red-600/40 text-red-400 font-bold rounded-xl transition flex items-center gap-2"><XCircle className="w-4 h-4" /> Turn Off</button></div></div></div></div>}
         
         {/* TAB 7: REVIEWS */}
         {activeTab === 'reviews' && (
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">{reviews.length === 0 && <p className="text-white/30 col-span-full text-center">No reviews yet.</p>}{reviews.map(review => (<div key={review.id} className={`p-6 rounded-xl border relative ${review.is_approved ? 'bg-nostro-charcoal border-green-500/30' : 'bg-black border-white/10'}`}><div className={`absolute top-4 right-4 px-2 py-1 text-[10px] font-bold uppercase rounded ${review.is_approved ? 'bg-green-500/20 text-green-500' : 'bg-yellow-500/20 text-yellow-500'}`}>{review.is_approved ? "Live" : "Pending"}</div><div className="flex gap-1 text-nostro-orange mb-2">{[...Array(review.rating)].map((_, i) => <Star key={i} className="w-3 h-3 fill-current" />)}</div><p className="text-white/90 mb-4 italic">"{review.text}"</p><div className="flex justify-between items-end"><div><div className="font-bold text-white">{review.name}</div><div className="text-xs text-white/50">{review.location}</div></div><div className="flex gap-2"><button onClick={() => toggleReviewApproval(review.id, review.is_approved)} className="px-3 py-1 rounded text-xs font-bold border border-white/20">{review.is_approved ? "Hide" : "Approve"}</button><button onClick={() => deleteReview(review.id)} className="px-3 py-1 rounded text-xs font-bold border border-red-500 text-red-500">Delete</button></div></div></div>))}</div>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">{reviews.length === 0 && <p className="text-white/30 col-span-full text-center">No reviews yet.</p>}{reviews.map(review => (<div key={review.id} className={`p-6 rounded-xl border relative ${review.is_approved ? 'bg-notsro-charcoal border-green-500/30' : 'bg-black border-white/10'}`}><div className={`absolute top-4 right-4 px-2 py-1 text-[10px] font-bold uppercase rounded ${review.is_approved ? 'bg-green-500/20 text-green-500' : 'bg-yellow-500/20 text-yellow-500'}`}>{review.is_approved ? "Live" : "Pending"}</div><div className="flex gap-1 text-notsro-orange mb-2">{[...Array(review.rating)].map((_, i) => <Star key={i} className="w-3 h-3 fill-current" />)}</div><p className="text-white/90 mb-4 italic">"{review.text}"</p><div className="flex justify-between items-end"><div><div className="font-bold text-white">{review.name}</div><div className="text-xs text-white/50">{review.location}</div></div><div className="flex gap-2"><button onClick={() => toggleReviewApproval(review.id, review.is_approved)} className="px-3 py-1 rounded text-xs font-bold border border-white/20">{review.is_approved ? "Hide" : "Approve"}</button><button onClick={() => deleteReview(review.id)} className="px-3 py-1 rounded text-xs font-bold border border-red-500 text-red-500">Delete</button></div></div></div>))}</div>
         )}
 
         {/* TAB 8: JOBS */}
         {activeTab === 'jobs' && (
           <div>
             <div className="flex justify-between items-center mb-6"><h2 className="text-2xl font-bold">Careers & Jobs</h2><button onClick={() => openModal('job')} className="px-4 py-2 bg-green-600 rounded-lg font-bold flex gap-2"><Plus className="w-4 h-4"/> Post Job</button></div>
-            <div className="grid gap-4">{jobs.map(job => (<div key={job.id} className="bg-nostro-charcoal p-6 rounded-xl border border-white/10 flex justify-between items-center"><div><h3 className="text-xl font-bold text-white">{job.title}</h3><p className="text-nostro-orange text-sm uppercase tracking-widest">{job.location} • {job.type}</p></div><button onClick={() => handleDelete('jobs', job.id)} className="p-2 text-red-500 hover:bg-red-500/10 rounded"><Trash2 className="w-5 h-5"/></button></div>))}</div>
+            <div className="grid gap-4">{jobs.map(job => (<div key={job.id} className="bg-notsro-charcoal p-6 rounded-xl border border-white/10 flex justify-between items-center"><div><h3 className="text-xl font-bold text-white">{job.title}</h3><p className="text-notsro-orange text-sm uppercase tracking-widest">{job.location} • {job.type}</p></div><button onClick={() => handleDelete('jobs', job.id)} className="p-2 text-red-500 hover:bg-red-500/10 rounded"><Trash2 className="w-5 h-5"/></button></div>))}</div>
           </div>
         )}
 
@@ -354,7 +354,7 @@ const AdminDashboard = () => {
         {activeTab === 'gift cards' && (
           <div>
             <div className="flex justify-between items-center mb-6"><h2 className="text-2xl font-bold">Gift Cards</h2><button onClick={() => openModal('card')} className="px-4 py-2 bg-green-600 rounded-lg font-bold flex gap-2"><Plus className="w-4 h-4"/> Create Card</button></div>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">{giftCards.map(card => (<div key={card.id} className="bg-gradient-to-br from-nostro-orange to-red-600 p-6 rounded-xl text-white relative overflow-hidden shadow-lg group"><div className="relative z-10 pointer-events-none"><h3 className="text-2xl font-serif font-bold mb-2">{card.name}</h3><p className="text-white/80 mb-4">Value: KES {card.value}</p><div className="font-bold text-3xl">Price: {card.price}</div></div><button onClick={(e) => { e.stopPropagation(); handleDelete('gift_cards', card.id); }} className="absolute top-2 right-2 z-20 p-3 bg-black/20 hover:bg-black/60 rounded-full text-white transition cursor-pointer"><Trash2 className="w-5 h-5"/></button></div>))}</div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">{giftCards.map(card => (<div key={card.id} className="bg-gradient-to-br from-notsro-orange to-red-600 p-6 rounded-xl text-white relative overflow-hidden shadow-lg group"><div className="relative z-10 pointer-events-none"><h3 className="text-2xl font-serif font-bold mb-2">{card.name}</h3><p className="text-white/80 mb-4">Value: KES {card.value}</p><div className="font-bold text-3xl">Price: {card.price}</div></div><button onClick={(e) => { e.stopPropagation(); handleDelete('gift_cards', card.id); }} className="absolute top-2 right-2 z-20 p-3 bg-black/20 hover:bg-black/60 rounded-full text-white transition cursor-pointer"><Trash2 className="w-5 h-5"/></button></div>))}</div>
           </div>
         )}
 
@@ -363,7 +363,7 @@ const AdminDashboard = () => {
       {/* DYNAMIC MODAL (FIXED HEIGHT + SCROLL) */}
       {isModalOpen && (
         <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-4">
-          <div className="bg-nostro-charcoal w-full max-w-lg rounded-2xl border border-white/10 shadow-2xl p-0 flex flex-col max-h-[90vh]">
+          <div className="bg-notsro-charcoal w-full max-w-lg rounded-2xl border border-white/10 shadow-2xl p-0 flex flex-col max-h-[90vh]">
             {/* HEADER */}
             <div className="p-6 border-b border-white/10 flex justify-between items-center shrink-0">
               <h3 className="text-xl font-bold text-white">{editingId ? "Edit" : "Create"} {modalType === 'menu' ? 'Item' : modalType === 'job' ? 'Job' : 'Card'}</h3>
@@ -383,7 +383,7 @@ const AdminDashboard = () => {
                     </div>
                     <div className="grid grid-cols-2 gap-4">
                       <div className="space-y-1"><label className="text-xs text-white/50 uppercase font-bold">Category</label><select className="w-full bg-black/50 border border-white/10 rounded-lg p-3 text-white" value={formData.category} onChange={e => setFormData({...formData, category: e.target.value})}><option>Burgers</option><option>Pizza</option><option>Sides</option><option>Drinks</option></select></div>
-                      <div className="space-y-1"><label className="text-xs text-nostro-orange uppercase font-bold">Sale Price (Optional)</label><input type="number" className="w-full bg-black/50 border border-nostro-orange/50 rounded-lg p-3 text-white" value={formData.sale_price} onChange={e => setFormData({...formData, sale_price: e.target.value})} /></div>
+                      <div className="space-y-1"><label className="text-xs text-notsro-orange uppercase font-bold">Sale Price (Optional)</label><input type="number" className="w-full bg-black/50 border border-notsro-orange/50 rounded-lg p-3 text-white" value={formData.sale_price} onChange={e => setFormData({...formData, sale_price: e.target.value})} /></div>
                     </div>
                     <div className="space-y-1"><label className="text-xs text-white/50 uppercase font-bold">Description</label><textarea className="w-full bg-black/50 border border-white/10 rounded-lg p-3 text-white h-20" value={formData.description} onChange={e => setFormData({...formData, description: e.target.value})} /></div>
                     
@@ -394,7 +394,7 @@ const AdminDashboard = () => {
                       </label>
                       
                       <div 
-                        className={`relative border-2 border-dashed rounded-xl p-6 text-center transition-all ${isDragging ? 'border-nostro-orange bg-nostro-orange/10' : 'border-white/20 bg-black/30'}`}
+                        className={`relative border-2 border-dashed rounded-xl p-6 text-center transition-all ${isDragging ? 'border-notsro-orange bg-notsro-orange/10' : 'border-white/20 bg-black/30'}`}
                         onDragOver={(e) => { e.preventDefault(); setIsDragging(true); }}
                         onDragLeave={() => setIsDragging(false)}
                         onDrop={(e) => {
@@ -427,7 +427,7 @@ const AdminDashboard = () => {
                           )}
                         </div>
                       </div>
-                      <div className="flex items-center gap-2 mt-2"><span className="text-[10px] uppercase text-white/30 font-bold">OR Paste Link</span><input type="text" placeholder="https://..." className="flex-1 bg-transparent border-b border-white/10 py-1 text-xs text-white focus:border-nostro-orange focus:outline-none" value={formData.image_url} onChange={e => setFormData({...formData, image_url: e.target.value})} /></div>
+                      <div className="flex items-center gap-2 mt-2"><span className="text-[10px] uppercase text-white/30 font-bold">OR Paste Link</span><input type="text" placeholder="https://..." className="flex-1 bg-transparent border-b border-white/10 py-1 text-xs text-white focus:border-notsro-orange focus:outline-none" value={formData.image_url} onChange={e => setFormData({...formData, image_url: e.target.value})} /></div>
                     </div>
                   </>
                 )}
@@ -458,7 +458,7 @@ const AdminDashboard = () => {
                 {/* Footer Buttons */}
                 <div className="pt-4 flex gap-3">
                    <button type="button" onClick={() => setIsModalOpen(false)} className="flex-1 py-3 bg-white/5 hover:bg-white/10 border border-white/10 text-white rounded-xl transition">Cancel</button>
-                   <button disabled={isUploading} className="flex-[2] py-3 bg-nostro-orange hover:bg-orange-600 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition shadow-glow">
+                   <button disabled={isUploading} className="flex-[2] py-3 bg-notsro-orange hover:bg-orange-600 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition shadow-glow">
                      {isUploading ? <RefreshCw className="w-4 h-4 animate-spin" /> : <Save className="w-4 h-4" />} 
                      {isUploading ? "Uploading..." : "Save"}
                    </button>
@@ -473,12 +473,12 @@ const AdminDashboard = () => {
 };
 
 const OrderCard = ({ order, onWhatsApp, onStatusUpdate }) => (
-  <div className={`bg-nostro-charcoal border rounded-xl p-6 flex flex-col shadow-lg transition-all ${order.status === 'pending' ? 'border-nostro-orange ring-1 ring-nostro-orange/50' : 'border-blue-500/30'}`}>
+  <div className={`bg-notsro-charcoal border rounded-xl p-6 flex flex-col shadow-lg transition-all ${order.status === 'pending' ? 'border-notsro-orange ring-1 ring-notsro-orange/50' : 'border-blue-500/30'}`}>
     <div className="flex justify-between items-start mb-4 border-b border-white/10 pb-4">
       <div><span className={`text-xs font-bold px-2 py-1 rounded uppercase ${order.status === 'pending' ? 'bg-yellow-500/20 text-yellow-500' : 'bg-blue-500/20 text-blue-500'}`}>{order.status}</span><h3 className="font-bold text-xl mt-2">#{order.id}</h3></div>
-      <div className="text-right"><div className="text-nostro-orange font-bold text-lg">KES {order.total_amount}</div><div className="text-xs uppercase bg-white/10 px-2 py-1 rounded inline-block mt-1">{order.customer_details.type}</div></div>
+      <div className="text-right"><div className="text-notsro-orange font-bold text-lg">KES {order.total_amount}</div><div className="text-xs uppercase bg-white/10 px-2 py-1 rounded inline-block mt-1">{order.customer_details.type}</div></div>
     </div>
-    <div className="mb-4 space-y-1 text-sm text-white/80 bg-black/20 p-3 rounded-lg"><p className="font-bold text-white">{order.customer_details.name}</p><p className="text-white/50">{order.customer_details.phone}</p><p className="text-xs mt-2 text-nostro-orange flex gap-1"><MapPin className="w-3 h-3" /> {order.customer_details.address}</p></div>
+    <div className="mb-4 space-y-1 text-sm text-white/80 bg-black/20 p-3 rounded-lg"><p className="font-bold text-white">{order.customer_details.name}</p><p className="text-white/50">{order.customer_details.phone}</p><p className="text-xs mt-2 text-notsro-orange flex gap-1"><MapPin className="w-3 h-3" /> {order.customer_details.address}</p></div>
     <div className="flex-1 mb-6 space-y-2 border-l-2 border-white/10 pl-3">{order.items.map((item, idx) => (<div key={idx} className="text-sm">1x {item.name}</div>))}</div>
     {order.status === 'pending' && <button onClick={() => onWhatsApp(order)} className="w-full py-3 bg-green-600 hover:bg-green-500 text-white font-bold rounded-lg flex items-center justify-center gap-2 transition mb-2"><MessageCircle className="w-4 h-4" /> Accept & Notify</button>}
     <div className="grid grid-cols-2 gap-2 mt-auto"><button onClick={() => onStatusUpdate(order.id, 'delivered')} className="py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded text-sm text-green-400">Complete</button><button onClick={() => onStatusUpdate(order.id, 'cancelled')} className="py-2 bg-white/5 hover:bg-white/10 border border-white/10 rounded text-sm text-red-400">Cancel</button></div>

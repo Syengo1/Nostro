@@ -30,11 +30,11 @@ import OurStory from './pages/Footer/OurStory';
 // --- HELPER COMPONENTS ---
 
 const NotFound = () => (
-  <div className="min-h-screen flex flex-col items-center justify-center bg-nostro-black text-center px-6">
+  <div className="min-h-screen flex flex-col items-center justify-center bg-notsro-black text-center px-6">
     <div className="text-9xl font-bold text-white/10">404</div>
     <h2 className="text-3xl font-serif font-bold text-white mb-4">Oops! You're lost in the sauce.</h2>
     <p className="text-white/50 mb-8">The page you are looking for has been eaten.</p>
-    <Link to="/" className="px-8 py-3 bg-nostro-orange text-white font-bold rounded-full hover:bg-orange-600 transition">Go Back Home</Link>
+    <Link to="/" className="px-8 py-3 bg-notsro-orange text-white font-bold rounded-full hover:bg-orange-600 transition">Go Back Home</Link>
   </div>
 );
 
@@ -132,20 +132,20 @@ function App() {
         const randomItem = items[Math.floor(Math.random() * items.length)];
         
         toast.custom((t) => (
-          <div className={`${t.visible ? 'animate-enter' : 'animate-leave'} bg-nostro-charcoal border border-white/10 p-4 rounded-xl shadow-2xl flex items-center gap-3 max-w-sm pointer-events-none`}>
+          <div className={`${t.visible ? 'animate-enter' : 'animate-leave'} bg-notsro-charcoal border border-white/10 p-4 rounded-xl shadow-2xl flex items-center gap-3 max-w-sm pointer-events-none`}>
             <div className="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center text-green-500 shrink-0">
               <MapPin className="w-5 h-5" />
             </div>
             <div>
               <p className="text-xs text-white/50 font-bold uppercase tracking-widest">Just Ordered</p>
-              <p className="text-sm text-white">Someone in <span className="text-nostro-orange">{randomLoc}</span> bought a {randomItem}</p>
+              <p className="text-sm text-white">Someone in <span className="text-notsro-orange">{randomLoc}</span> bought a {randomItem}</p>
             </div>
           </div>
         ), { duration: 4000, position: 'bottom-left' });
       } else {
         const count = Math.floor(Math.random() * (45 - 15 + 1)) + 15;
         toast.custom((t) => (
-          <div className={`${t.visible ? 'animate-enter' : 'animate-leave'} bg-nostro-charcoal border border-white/10 p-4 rounded-xl shadow-2xl flex items-center gap-3 max-w-sm pointer-events-none`}>
+          <div className={`${t.visible ? 'animate-enter' : 'animate-leave'} bg-notsro-charcoal border border-white/10 p-4 rounded-xl shadow-2xl flex items-center gap-3 max-w-sm pointer-events-none`}>
             <div className="w-10 h-10 bg-blue-500/20 rounded-full flex items-center justify-center text-blue-500 shrink-0">
               <Users className="w-5 h-5" />
             </div>
@@ -175,7 +175,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <div className="bg-nostro-black min-h-screen text-nostro-cream selection:bg-nostro-orange selection:text-white font-sans">
+      <div className="bg-notsro-black min-h-screen text-notsro-cream selection:bg-notsro-orange selection:text-white font-sans">
         <ScrollToTop />
         
         <Toaster 
